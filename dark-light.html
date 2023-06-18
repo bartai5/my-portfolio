@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Light Theme </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+
+        :root{
+            --primary-color: rgb(184, 187, 5);
+            --fore-color: #1a1a1a;
+            --font-size: 1.2em;
+        }
+
+        .dark-theme{
+            background-color: #212121;
+            color: #f3f3f3;
+        }
+        body{
+            height: 100vh;
+            position: relative;
+            background: var(--primary-color);
+            color: var(--fore-color);
+            font-size: var(--font-size);
+        }
+
+        .container{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 50px;
+        }
+
+        .container .toggle{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 90px;
+            height: 50px;
+            background: #444;
+            border-radius: 30px; 
+            transition: .5s;
+        }
+
+        .container .toggle.active{
+            background-color: rgb(0, 138, 103);
+        }
+
+        .container .toggle.active .toggle-button{
+            left: 45px;
+            background-color: #e2e2e2;
+        }
+
+        .container .toggle .toggle-button{
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 40px;
+            height: 40px;
+            background: #fff;
+            border-radius: 50%;
+            cursor: pointer; 
+            transition: .5s;
+        }
+    </style>
+</head>
+<body>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae at fugiat repellat dolore unde perferendis earum maiores doloribus et, veniam iure error qui velit! Suscipit harum distinctio amet praesentium placeat molestiae est accusantium asperiores sed aut? Quod nobis ipsa suscipit.</p>
+    <div class="container">
+        <div class="toggle">
+            
+            <div class="toggle-button" onclick="animatedToggle()"></div>
+        </div>
+    </div>
+
+    <script>
+        let toggle = document.querySelector(".toggle");
+
+        function animatedToggle(){
+            toggle.classList.toggle("active");
+            document.body.classList.toggle("dark-theme");
+        }
+    </script>
+</body>
+</html>

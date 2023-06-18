@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+    <style>
+        *{
+            font-size: 1em;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .toggle{
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            width: 120px;
+            height: 60px;
+            border-radius: 50px;
+        }
+        .toggle i{
+            width: 50%;
+            line-height: 60px;
+            text-align: center;
+            font-size: 1.9em;
+            z-index: 1;
+        }
+        input{
+            display: none;
+        }
+
+        /* Light Theme */
+        .light{
+            background: #fafafa;
+        }
+        .light .toggle{
+            background: linear-gradient(145deg, #e1e1e1, #fff);
+            box-shadow: 3px 3px 4px #e6e6e6, 3px 3px 4px #ffffff;
+        }
+        .toggle .bx-sun{
+            color: #fafafa;
+        }
+        .toggle .bx-moon{
+            color: #151d2a;
+        }
+        .toggle .ball{
+            position: absolute;
+            width: 45px;
+            height: 45px;
+            margin: 7.5px;
+            border-radius: 50%;
+            background-color: #151d2a;
+        }
+
+        /* Dark Theme */
+        .dark{
+            background: #151d2a;
+        }
+        .dark .toggle{
+            background: linear-gradient(#151d2a);
+            box-shadow: 3px 3px 3px #0e131b, -3px -3px 3px #1c2739;
+        }
+        .dark .toggle .bx-sun{
+            color: #fafafa;
+        }
+        .dark .toggle .bx-moon{
+            color: #151d2a;
+        }
+        .dark .toggle .ball{
+            background: #fafafa;
+            transform: translate(60px);
+        }
+    </style>
+</head>
+<body>
+    <input type="checkbox" id="toggle">
+    <label for="toggle" class="toggle">
+        <i class='bx bx-sun'></i>
+        <i class='bx bxs-moon'></i>
+        <span class="ball"></span>
+    </label>
+
+    <script>
+        const body = document.querySelector("body");
+        const toggle = document.querySelector("#toggle");
+        const sunIcon = document.querySelector("toggle .bx-sun");
+        const moonIcon = document.querySelector("toggle .bxs-moon");
+
+        toggle.addEventListene("change", () =>{
+            body.classList.toggle("dark");
+            sunIcon.className = sunIcon.className == "bx bx-sun" ? "bx bxs-sun" : "bx bx-sun";
+            moonIcon.className = moonIcon.className == "bx bxs-moon" ? "bx bx-moon" : "bx bxs-moon";
+        })
+    </script>
+</body>
+</html>
